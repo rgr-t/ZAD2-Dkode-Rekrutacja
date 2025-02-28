@@ -14,7 +14,6 @@ var state = {
 };
 
 var logsArea = $(".textareaha");
-
 /*
 
 functions
@@ -105,6 +104,7 @@ function EndOperation()
         case "*": 
         {
           result = firstFloatNumber * secondFloatNumber;
+          
           break;
         }
         case "/": 
@@ -121,13 +121,18 @@ function EndOperation()
         }
       }
 
+      result = parseFloat(result.toFixed(2));
+      LogInfo(`| ${state.operationValues.first} ${state.operationValues.operationType} ${state.operationValues.second} = ${result === Math.floor(result) ? result : result.toFixed(2) }`)
       state.operationValues.first = null;
       state.operationValues.operationType = null;
       state.operationValues.second = null;
 
       Restart();
-      
-      state.currentResult = result.toString();
+
+      if (result === Math.floor(result))         
+          state.currentResult = result.toString();      
+      else 
+        state.currentResult = result.toFixed(2).toString();    
     }
   }
 
@@ -137,6 +142,11 @@ function EndOperation()
 //function for refreshing result input value
 function ViewDisplayCurrentState() 
 {  
+  $('.currencybutton').css('backgroundColor', '');  
+    if (state.currencyValues.currentCurrency !== "PLN") {
+    $(`#${state.currencyValues.currentCurrency}`).css('backgroundColor', '#eddea4');
+  }
+
   if (!state.inOperationState)
     $("#result").val(state.currentResult);
   else 

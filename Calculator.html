@@ -2,81 +2,95 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
     <title>JavaScript Calculator with Currency Conversion</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="./styles.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div>
-      <p>history logs:</p>
-      <textarea class="textareaha" rows="50" cols="50" disabled="true">
-      </textarea>
-    </div>
     <div id="calculator">
       <div class="cell" id="result-holder">
         <input type="text" id="result" value="0" />
       </div>
-      <div class="cell">
-        <input type="button" id="GBP" value="GBP" />
+      <div class="calcrow curencyrow">
+        <div class="cell">
+          <input type="button" class="currencybutton" id="GBP" value="GBP" />
+        </div>
+        <div class="cell">
+          <input type="button" class="currencybutton" id="EUR" value="EUR" />
+        </div>
+        <div class="cell">
+          <input type="button" class="currencybutton" id="USD" value="USD" />
+        </div>
+        <div class="cell">
+          <input type="button" id="restart" value="C" />
+        </div>
       </div>
-      <div class="cell">
-        <input type="button" id="EUR" value="EUR" />
+      <div class="calcrow">
+        <div class="cell">
+          <input type="button" class="number-input" value="7" />
+        </div>
+        <div class="cell">
+          <input type="button" class="number-input" value="8" />
+        </div>
+        <div class="cell">
+          <input type="button" class="number-input" value="9" />
+        </div>
+        <div class="cell">
+          <input type="button" class="operation" value="/" />
+        </div>
       </div>
-      <div class="cell">
-        <input type="button" id="USD" value="USD" />
+      <div class="calcrow">
+        <div class="cell">
+          <input type="button" class="number-input" value="4" />
+        </div>
+        <div class="cell">
+          <input type="button" class="number-input" value="5" />
+        </div>
+        <div class="cell">
+          <input type="button" class="number-input" value="6" />
+        </div>
+        <div class="cell">
+          <input type="button" class="operation" value="*" />
+        </div>
       </div>
-      <div class="cell">
-        <input type="button" id="restart" value="C" />
+      <div class="calcrow">
+        <div class="cell">
+          <input type="button" class="number-input" value="1" />
+        </div>
+        <div class="cell">
+          <input type="button" class="number-input" value="2" />
+        </div>
+        <div class="cell">
+          <input type="button" class="number-input" value="3" />
+        </div>
+        <div class="cell">
+          <input type="button" class="operation" value="-" />
+        </div>
       </div>
-      <div class="cell">
-        <input type="button" class="number-input" value="7" />
+      <div class="calcrow">
+        <div class="cell">
+          <input type="button" id="floating" value="." />
+        </div>
+        <div class="cell">
+          <input type="button" class="number-input" value="0" />
+        </div>
+        <div class="cell">
+          <input type="button" id="equal" value="=" />
+        </div>
+        <div class="cell">
+          <input type="button" class="operation" value="+" />
+        </div>
       </div>
-      <div class="cell">
-        <input type="button" class="number-input" value="8" />
-      </div>
-      <div class="cell">
-        <input type="button" class="number-input" value="9" />
-      </div>
-      <div class="cell">
-        <input type="button" class="operation" value="/" />
-      </div>
-      <div class="cell">
-        <input type="button" class="number-input" value="4" />
-      </div>
-      <div class="cell">
-        <input type="button" class="number-input" value="5" />
-      </div>
-      <div class="cell">
-        <input type="button" class="number-input" value="6" />
-      </div>
-      <div class="cell">
-        <input type="button" class="operation" value="*" />
-      </div>
-      <div class="cell">
-        <input type="button" class="number-input" value="1" />
-      </div>
-      <div class="cell">
-        <input type="button" class="number-input" value="2" />
-      </div>
-      <div class="cell">
-        <input type="button" class="number-input" value="3" />
-      </div>
-      <div class="cell">
-        <input type="button" class="operation" value="-" />
-      </div>
-      <div class="cell">
-        <input type="button" id="floating" value="." />
-      </div>
-      <div class="cell">
-        <input type="button" class="number-input" value="0" />
-      </div>
-      <div class="cell">
-        <input type="button" id="equal" value="=" />
-      </div>
-      <div class="cell">
-        <input type="button" class="operation" value="+" />
-      </div>
+    </div>
+    <div class="history-logs">
+      <p>HISTORY:</p>
+      <textarea class="textareaha" rows="50" cols="50" disabled="true">
+      </textarea>
     </div>
     <script src="./scripts.js"></script>
   </body>
